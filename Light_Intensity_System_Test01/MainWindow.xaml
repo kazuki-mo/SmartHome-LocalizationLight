@@ -1,0 +1,129 @@
+﻿<Window x:Class="Light_Intensity_System_Test01.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="An Indoor Localization Method based on Light-Intensity" Height="720" Width="1200"
+        Top="10">
+    <DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <TextBlock Grid.Row="0" Grid.Column="0" Name="TB_Top" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" Margin="0,10,0,0" >位置推定エリアを表示しています</TextBlock>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="800" />
+                <ColumnDefinition Width="400" />
+            </Grid.ColumnDefinitions>
+            <Canvas Name="Cv_Room" Grid.Column="0">
+                <Image  Name="Im_Room" Source="Image/map2.png" Width="800" />
+                <Image Name="Im_Star" Source="Image/Star_2.png" Width="50" Height="50" Visibility="Hidden" />
+                <Ellipse Name="El_Light1" Fill="Red" Height="20" Stroke="Black" Width="20" Canvas.Left="431" Canvas.Top="501"/>
+                <Ellipse Name="El_Light2" Fill="Green" Height="20" Stroke="Black" Width="20" Canvas.Left="431" Canvas.Top="501"/>
+                <Ellipse Name="El_Light3" Fill="Blue" Height="20" Stroke="Black" Width="20" Canvas.Left="431" Canvas.Top="501"/>
+            </Canvas>
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="200"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源１設置座標</TextBlock>
+                <Grid Grid.Row="0" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">x:</TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TB_Light1_x" Margin="0,5,20,5" FontSize="24"></TextBox>
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">y:</TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TB_Light1_y" Margin="0,5,20,5" FontSize="24"></TextBox>
+                </Grid>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源２設置座標</TextBlock>
+                <Grid Grid.Row="1" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">x:</TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TB_Light2_x" Margin="0,5,20,5" FontSize="24"></TextBox>
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">y:</TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TB_Light2_y" Margin="0,5,20,5" FontSize="24"></TextBox>
+                </Grid>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源３設置座標</TextBlock>
+                <Grid Grid.Row="2" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50"/>
+                        <ColumnDefinition Width="150"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">x:</TextBlock>
+                    <TextBox Grid.Row="0" Grid.Column="1" Name="TB_Light3_x" Margin="0,5,20,5" FontSize="24"></TextBox>
+                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" FontSize="24" Margin="0,5,0,5">y:</TextBlock>
+                    <TextBox Grid.Row="1" Grid.Column="1" Name="TB_Light3_y" Margin="0,5,20,5" FontSize="24"></TextBox>
+                </Grid>
+
+                <TextBlock Grid.Row="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源1 照度</TextBlock>
+                <Grid Grid.Row="3" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Name="TB_Light1_Lux" HorizontalAlignment="Center"  FontSize="24" VerticalAlignment="Center">0</TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Center"> lux</TextBlock>
+                </Grid>
+
+                <TextBlock Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源2 照度</TextBlock>
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Name="TB_Light2_Lux" HorizontalAlignment="Center"  FontSize="24" VerticalAlignment="Center">0</TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Center"> lux</TextBlock>
+                </Grid>
+
+                <TextBlock Grid.Row="5" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Margin="0,10,0,0" >光源3 照度</TextBlock>
+                <Grid Grid.Row="5" Grid.Column="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="120"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Name="TB_Light3_Lux" HorizontalAlignment="Center"  FontSize="24" VerticalAlignment="Center">0</TextBlock>
+                    <TextBlock Grid.Column="1" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Center"> lux</TextBlock>
+                </Grid>
+
+                <Button Grid.Row="6" Grid.Column="0" Name="BT_Start" Margin="20,10,20,15" FontSize="22">推定開始</Button>
+                <Button Grid.Row="6" Grid.Column="1" Name="BT_Stop" Margin="20,10,20,15" FontSize="22">停止</Button>
+            </Grid>
+        </Grid>
+    </DockPanel>
+</Window>
